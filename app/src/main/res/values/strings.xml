@@ -11,10 +11,9 @@
     <string name="btn8">8</string>
     <string name="btn9">9</string>
     <string name="btnAdd">+</string>
-    <string name="btnSubstract">-</string>
+    <string name="btnSubs">-</string>
     <string name="btnMultiply">*</string>
     <string name="btnDivide">/</string>
-    <string name="btnPoint">.</string>
     <string name="btnDelete">C</string>
     <string name="btnEqual">=</string>
 
