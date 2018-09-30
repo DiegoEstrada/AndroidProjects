@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemHistorial"
+        android:title="@string/itemHistorial"
+        android:visible="true" />
+    <item
+        android:id="@+id/itemGraficar"
+        android:title="@string/itemGraficar" />
+    <item
+        android:id="@+id/itemAcercaDe"
+        android:title="@string/btnAcercaDe"
+        android:visible="true" />
+</menu>

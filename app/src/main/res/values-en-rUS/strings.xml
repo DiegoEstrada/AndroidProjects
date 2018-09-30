@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="btn0">0</string>
+    <string name="materia">Advanced Programming I: Android</string>
+    <string name="nombre">Created by Estrada Granados Diego</string>
+    <string name="title_activity_acerca_de">About this</string>
+    <string name="btnRegresar">Return</string>
+    <string name="version">Version 1</string>
+    <string name="btnAcercaDe">About this...</string>
+    <string name="todo">TODO</string>
+    <string name="btnPorc">%</string>
+    <string name="btnE">e</string>
+    <string name="btnSqrt">sqrt(</string>
+    <string name="btnLog">log(</string>
+    <string name="btnLn">ln(</string>
+    <string name="btnExp">^</string>
+    <string name="btnX">x</string>
+    <string name="btnPC">)</string>
+    <string name="btnPA">(</string>
+    <string name="btnTan">tan(</string>
+    <string name="btnCos">cos(</string>
+    <string name="btnSin">sin(</string>
+    <string name="btnEqual">=</string>
+    <string name="btnDelete">C</string>
+    <string name="btnDivide">/</string>
+    <string name="btnMultiply">*</string>
+    <string name="btnSubs">-</string>
+    <string name="btnAdd">+</string>
+    <string name="btn9">9</string>
+    <string name="btn8">8</string>
+    <string name="btn7">7</string>
+    <string name="btn6">6</string>
+    <string name="btn5">5</string>
+    <string name="btn4">4</string>
+    <string name="btn3">3</string>
+    <string name="btn2">2</string>
+    <string name="btn1">1</string>
+    <string name="btnAcerca">Ace</string>
+    <string name="itemHistorial">History</string>
+    <string name="btnBorrar">Clean</string>
+    <string name="itemGraficar">Graph</string>
+    <string name="tstDatosGuardados">Saved data</string>
+    <string name="tstSinDatosGuardados">There is no record of operations performed</string>
+    <string name="tstDatosEliminados">Deleted data</string>
+    <string name="tstZoom">Enfocar</string>
+</resources>

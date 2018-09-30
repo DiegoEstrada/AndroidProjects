@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Calculadora</string>
     <string name="btn0">0</string>
@@ -25,25 +26,23 @@
     <string name="btnExp">^</string>
     <string name="btnLn">ln(</string>
     <string name="btnLog">log(</string>
-    <string name="btnSqrt">sqr(</string>
+    <string name="btnSqrt">sqrt(</string>
     <string name="btnE">e</string>
     <string name="btnPorc">%</string>
     <string name="btnAcerca">Ace</string>
-    <string name="title_activity_acerca_de">Acerca de</string>
-    <string name="nombre">Elaborado  por Estrada Granados Diego</string>
-    <string name="materia">Programacion Avanzada I: Android</string>
-    <string name="version">Version 1</string>
-    <string name="btnRegresar">Regresar</string>
-    <string name="btnAcercaDe">Acerca de ...</string>
-
+    <string name="title_activity_acerca_de">Sobre</string>
+    <string name="version">Versão 1</string>
+    <string name="btnRegresar">Retorno</string>
+    <string name="nombre">Preparado pela Estrada Granados Diego</string>
+    <string name="materia">Programação Avançada I: Android</string>
     <string name="todo">TODO</string>
-    <string name="itemHistorial">Historial</string>
-    <string name="btnBorrar">Borrar</string>
-    <string name="itemGraficar">Graficar</string>
-    <string name="tstDatosGuardados">Datos guardados</string>
-    <string name="tstSinDatosGuardados">No hay registro de operaciones realizadas</string>
-    <string name="tstDatosEliminados">Datos eliminados</string>
+    <string name="itemHistorial">Historia</string>
+    <string name="btnborrar">Excliir</string>
+    <string name="btnAcercaDe">Sobre</string>
+    <string name="btnBorrar">Exciliir</string>
+    <string name="itemGraficar">Grafo</string>
+    <string name="tstDatosGuardados">Dados salvos</string>
+    <string name="tstSinDatosGuardados">Não há registro de operações realizadas</string>
+    <string name="tstDatosEliminados">Dados excluídos</string>
     <string name="tstZoom">Zoom</string>
-
-
 </resources>
