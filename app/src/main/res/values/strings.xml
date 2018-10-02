@@ -44,6 +44,8 @@
     <string name="tstSinDatosGuardados">No hay registro de operaciones realizadas</string>
     <string name="tstDatosEliminados">Datos eliminados</string>
     <string name="tstZoom">Zoom</string>
+    <string name="btnGraficar">Graficar</string>
+    <string name="etInstGraficar">Ingrese una función dependiente de X</string>
 
 
 </resources>

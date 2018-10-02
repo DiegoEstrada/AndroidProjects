@@ -1,26 +1,21 @@
 package com.example.diegoeg.ap.udenar.calculator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.PersistableBundle;
-import android.content.Intent;
-
-import android.os.Vibrator;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MotionEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.fathzer.soft.javaluator.DoubleEvaluator;
 
-
-import javax.script.*;
 
 
 
@@ -40,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         final Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
 
@@ -140,8 +137,10 @@ public class MainActivity extends AppCompatActivity {
     public void verificar(View v){
 
         String foo = "2*5+(3*8)";
-        ScriptEngineManager mgr = new ScriptEngineManager();
-        ScriptEngine engine = mgr.getEngineByName("JavaScript");
+        //ScriptEngineManager mgr = new ScriptEngineManager();
+        //ScriptEngine engine = mgr.getEngineByName("JavaScript");
+
+        //Calcular calcular = new Calcular();
 
         try{
 
@@ -149,22 +148,21 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences preferencias=getSharedPreferences(HISTORY_KEY, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor=preferencias.edit();
             //engine.eval("2+2");
-            String before = getHistory();
-            before += "\n"+display.getText();
+            // Create a new evaluator
+            DoubleEvaluator evaluator = new DoubleEvaluator();
+            // Evaluate an expression
+            Double result = evaluator.evaluate(input);
+
+            String before = display.getText()+" = "+result+"\n"+getHistory();
+            input = result.toString();
+            this.display.setText(input);
             editor.putString(HISTORY_KEY, before);
             editor.commit();
             Toast.makeText(this,""+getString(R.string.tstDatosGuardados),Toast.LENGTH_LONG).show();
             //System.out.println(engine.eval(display.getText().toString()));
-            input="";
-            display.setText("");
-            //engine.eval("2+2");
-
-            //engine.eval("2+2");
-            //Toast.makeText(this,"RESULTADO "+r,Toast.LENGTH_LONG).show();
-
 
         }catch(Exception e){
-            Log.e("ERROR Engine Script",e.getMessage());
+            Log.e("ERROR CANDENA USR",e.getMessage());
         }
 
 
@@ -262,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         if (id==R.id.itemGraficar) {
-            Intent intent = new Intent( MainActivity.this,Graficar.class);
+            Intent intent = new Intent( MainActivity.this,Grafica.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

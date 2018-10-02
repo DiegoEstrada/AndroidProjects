@@ -37,7 +37,6 @@
     <string name="materia">Programação Avançada I: Android</string>
     <string name="todo">TODO</string>
     <string name="itemHistorial">Historia</string>
-    <string name="btnborrar">Excliir</string>
     <string name="btnAcercaDe">Sobre</string>
     <string name="btnBorrar">Exciliir</string>
     <string name="itemGraficar">Grafo</string>
@@ -45,4 +44,6 @@
     <string name="tstSinDatosGuardados">Não há registro de operações realizadas</string>
     <string name="tstDatosEliminados">Dados excluídos</string>
     <string name="tstZoom">Zoom</string>
+    <string name="btnGraficar">Grafo</string>
+    <string name="etInstGraficar">Insira uma função dependente de X</string>
 </resources>

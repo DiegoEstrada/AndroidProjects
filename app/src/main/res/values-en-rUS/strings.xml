@@ -44,4 +44,6 @@
     <string name="tstSinDatosGuardados">There is no record of operations performed</string>
     <string name="tstDatosEliminados">Deleted data</string>
     <string name="tstZoom">Enfocar</string>
+    <string name="btnGraficar">Graph</string>
+    <string name="etInstGraficar">Enter a function that depends on X</string>
 </resources>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.diegoeg.ap.udenar.calculator">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -24,9 +26,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Historial" />
-        <activity android:name=".Graficar"></activity>
+        <activity android:name=".Graficar" />
+        <activity android:name=".Grafica"></activity>
     </application>
-    <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
-    
 
 </manifest>
