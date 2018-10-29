@@ -22,10 +22,11 @@ public class SplashScreen extends Activity {
             @Override
             public void run() {
 
-                Intent intent = new Intent( SplashScreen.this,MainActivity.class);
+                Intent intent = new Intent( SplashScreen.this,Inicio.class);
                 startActivity(intent);
+                finish();
             }
-        },3300);
+        },2900);
 
 
     }

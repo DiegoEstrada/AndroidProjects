@@ -44,9 +44,9 @@ public class Historial extends AppCompatActivity {
 
     public void regresarMenu(View v) throws Exception{
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Inicio.class);
         startActivity(intent);
-
+        finish();
     }
 
     public void deleteHistory(View v){

@@ -46,6 +46,18 @@
     <string name="tstZoom">Zoom</string>
     <string name="btnGraficar">Graficar</string>
     <string name="etInstGraficar">Ingrese una función dependiente de X</string>
+    <string name="lblAndroidPlot">Graficador de funciones</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Calculadora</string>
+    <string name="nav_header_subtitle">diegoestrada97@hotmail.com</string>
+    <string name="nav_header_desc">Encabezado de navegación</string>
+    <string name="action_settings">Configuración</string>
+    <string name="itemConfiguracion">Configuración</string>
+    <string name="menuCompartir">Compartir</string>
+    <string name="menuConfiguracion">Configuración</string>
+    <string name="menuFeedback">Enviar feedback</string>
 
 
 </resources>

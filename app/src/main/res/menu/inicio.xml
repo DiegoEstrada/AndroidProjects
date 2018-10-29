@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+   <!-- <item
+        android:id="@+id/action_Graficar"
+        android:orderInCategory="100"
+        android:title="@string/btnGraficar"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_Historial"
+        android:orderInCategory="100"
+        android:title="@string/itemHistorial"
+        app:showAsAction="never" /> -->
+
+    <item
+        android:id="@+id/action_AcercaDe"
+        android:orderInCategory="100"
+        android:title="@string/btnAcercaDe"
+        app:showAsAction="never" />
+</menu>

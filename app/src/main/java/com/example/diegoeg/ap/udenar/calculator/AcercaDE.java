@@ -21,7 +21,7 @@ public class AcercaDE extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Not implemented yet", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -34,6 +34,8 @@ public class AcercaDE extends AppCompatActivity {
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message);
         //startActivity(intent);
+        Intent intent = new Intent(this, Inicio.class);
+        startActivity(intent);
         finish();
     }
 

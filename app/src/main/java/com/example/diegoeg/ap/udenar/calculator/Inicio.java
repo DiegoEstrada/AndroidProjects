@@ -6,20 +6,26 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.fathzer.soft.javaluator.DoubleEvaluator;
 
-
-
-
-public class MainActivity extends AppCompatActivity {
+public class Inicio extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private TextView display;
     private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnAdd,btnSubstract,
@@ -27,16 +33,14 @@ public class MainActivity extends AppCompatActivity {
             btnPC,btnX,btnExp,btnLog,btnLn,btnPorc,btnE;
     private String input = "";
 
-
-
     public static final String HISTORY_KEY = "historialOP";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
+        setContentView(R.layout.activity_inicio);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         final Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
 
@@ -89,41 +93,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Registring event sources
 
-        /*
-        btn0.setOnClickListener(this);
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
-        btn5.setOnClickListener(this);
-        btn6.setOnClickListener(this);
-        btn7.setOnClickListener(this);
-        btn8.setOnClickListener(this);
-        btn9.setOnClickListener(this);
-        btnAdd.setOnClickListener(this);
-        btnSubstract.setOnClickListener(this);
-        btnMultiply.setOnClickListener(this);
-        btnDivide.setOnClickListener(this);
-        btnEqual.setOnClickListener(this);
-        btnClear.setOnClickListener(this);
 
-        btnSin.setOnClickListener(this);
-        btnCos.setOnClickListener(this);
-        btnTan.setOnClickListener(this);
-        btnSqrt.setOnClickListener(this);
-        btnPA.setOnClickListener(this);
-        btnPC.setOnClickListener(this);
-        btnX.setOnClickListener(this);
-        btnExp.setOnClickListener(this);
-        btnLog.setOnClickListener(this);
-        btnLn.setOnClickListener(this);
-        btnPorc.setOnClickListener(this);
-        btnE.setOnClickListener(this);
-        */
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
+
     public void borrar(View v){
         input = display.getText().toString();
         if(input.length()>0)
@@ -225,68 +206,75 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
+
 
     @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-        outState.putString("displayState",this.display.getText().toString());
-        System.out.println("SAVING STATES");
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        String text = savedInstanceState.getString("displayState");
-        this.display.setText(String.valueOf(text));
-    }
-    */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menuopciones, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.inicio, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id==R.id.itemAcercaDe ){
-            Intent intent = new Intent( MainActivity.this,AcercaDE.class);
+
+        //noinspection SimplifiableIfStatement
+        /*
+        if (id == R.id.action_Graficar) {
+            Intent intent = new Intent( Inicio.this,Historial.class);
             startActivity(intent);
+            //finish();
         }
-        if (id==R.id.itemHistorial) {
-            Intent intent = new Intent( MainActivity.this,Historial.class);
+        */
+        if (id == R.id.action_AcercaDe){
+            Intent intent = new Intent( Inicio.this,AcercaDE.class);
             startActivity(intent);
+            //finish();
         }
-        if (id==R.id.itemGraficar) {
-            Intent intent = new Intent( MainActivity.this,Graph.class);
+        /*
+        if(id == R.id.action_Graficar){
+            Intent intent = new Intent( Inicio.this,Graph.class);
             startActivity(intent);
+            //finish();
         }
+        */
+
         return super.onOptionsItemSelected(item);
     }
-     /*
-        Imagge Asset gestiona el manejo del icono de la aplicacion para el icono, notificaciones, etc
-        Un scrollLayout solo contiene un elemento dentro de el, que es un Linear Layout
 
-        File, Settings, Plugins, Browse reposuitorues, Android Drawabe Importer, es un plugin para
-       no hacer cambios manuales al icono de la aplicacione
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-       App, new, Batch Drawable Importer
+        if (id == R.id.nav_history) {
+            Intent intent = new Intent( Inicio.this,Historial.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_graph) {
+            Intent intent = new Intent( Inicio.this,Graph.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_about) {
+            Intent intent = new Intent( Inicio.this,AcercaDE.class);
+            startActivity(intent);
+        }
 
-       Para ver el archivo xml del preferenceShared, dentro de data, user, 0, ahi se encuentra el
-       nombre de la aplicacion
-       Device file explorer
-
-
-       Nuevo activity en toolbar para dibujar un plano cartesiano, icono, cambiar escalas
-     */
-
-     /*
-        En la nueva version de Android, android Oreo 8.01, en el archivo manifest hay una linea
-        llamada <!--android:roundIcon="@mipmap/ic_launcher_round" --> la cual especifica la direccion
-        para el icono de la palicacion con los bordes redondeados, se puede quitar y el icono
-        se adapta al circulo o se tienen que modificar el icono con bordes redondos y especificar
-        la direccion de estaas imagenes
-      */
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }
