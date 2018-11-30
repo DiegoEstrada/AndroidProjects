@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Web Service</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="nav_header_title">PokeApp</string>
+    <string name="nav_header_subtitle">diegoestrada97@hotmail.ocm</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="tvTittle">Pokemon\'s List</string>
+    <string name="crdNombre">Name</string>
+    <string name="crdHab1">Ability 1</string>
+    <string name="crdHab2">Ability 2</string>
+    <string name="crdExp">Experience</string>
+    <string name="tvTittleListPok">All Pokemons Available</string>
+</resources>

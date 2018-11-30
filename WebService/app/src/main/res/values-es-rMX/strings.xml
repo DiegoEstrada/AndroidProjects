@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Servicio Web</string>
+    <string name="navigation_drawer_open">"Abre la barra de navegacion "</string>
+    <string name="navigation_drawer_close">Cierra la barra de navegación</string>
+    <string name="nav_header_title">PokeApp</string>
+    <string name="nav_header_subtitle">diegoestrada97@hotmail.com</string>
+    <string name="nav_header_desc">Encabezado de navegacion</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="tvTittle">Lista de Pokemones</string>
+    <string name="crdNombre">Nombre</string>
+    <string name="crdHab1">Habilidad 1</string>
+    <string name="crdHab2">Habilidad 2</string>
+    <string name="crdExp">Experiencia</string>
+    <string name="tvTittleListPok">Pokemones Disponibles</string>
+</resources>
