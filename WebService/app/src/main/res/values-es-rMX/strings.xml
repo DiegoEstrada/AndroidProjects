@@ -3,7 +3,7 @@
     <string name="app_name">Servicio Web</string>
     <string name="navigation_drawer_open">"Abre la barra de navegacion "</string>
     <string name="navigation_drawer_close">Cierra la barra de navegación</string>
-    <string name="nav_header_title">PokeApp</string>
+    <string name="nav_header_title">Poke Aplicación</string>
     <string name="nav_header_subtitle">diegoestrada97@hotmail.com</string>
     <string name="nav_header_desc">Encabezado de navegacion</string>
     <string name="action_settings">Configuraciones</string>
@@ -11,6 +11,20 @@
     <string name="crdNombre">Nombre</string>
     <string name="crdHab1">Habilidad 1</string>
     <string name="crdHab2">Habilidad 2</string>
-    <string name="crdExp">Experiencia</string>
+    <string name="crdPeso">Peso</string>
     <string name="tvTittleListPok">Pokemones Disponibles</string>
+    <string name="crdTipo">Tipo</string>
+    <string name="crdHab">Habilidad</string>
+    <string name="hello_blank_fragment">Hola en un frgamentoen balnco</string>
+    <string name="btnFragmentDetalleCerrar">Cerrar</string>
+    <string name="actionAbout">Acerca de</string>
+    <string name="itemFavourite">Favoritos</string>
+    <string name="itemWater">Pokemones de Agua</string>
+    <string name="itemFire">Pokemones de Fuego</string>
+    <string name="itemElectric">Pokemones Eléctricos</string>
+    <string name="mComunicacion">Comunicate</string>
+    <string name="itemFeedback">Enviar Comentarios</string>
+    <string name="aboutName">Elaborado por  Estrada Granados Diego</string>
+    <string name="aboutSubject">Programación Avanzada I: Android</string>
+    <string name="aboutVersion">Versión 1</string>
 </resources>

@@ -1,66 +1,45 @@
 package com.diegoeg.ap.udenar.webservice;
 
+
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity
 
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        FragmentListaPokemones.OnFragmentInteractionListener,
+        FragmentAbout.OnFragmentInteractionListener,
+        FragmentElectrico.OnFragmentInteractionListener,
+        FragmentFavourite.OnFragmentInteractionListener,
+        Comunicacion
+        //HeadlinesFragment.OnHeadlineSelectedListener
+        {
 
-    private static RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-    private static RecyclerView recyclerView;
-
-    static String stringName ;
-    static String stringHab1 ;
-    static String stringNHab2 ;
-    static String stringExp ;
-
-
-    private PokemonInitialAdapter pokemonAdapter;
-    private ArrayList<Pokemon> listaPokemones;
-    private RequestQueue  requestQueue;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private RequestQueue mRequestQueue;
-    //private RecyclerView recyclerView;
-
-    private static final String TAG="POKEDEX";
-    private Retrofit retrofit;
+    public static final String NOMBRE = "name";
+            private static FragmentManager fragmentManager;
+            private static Context cLanzar;
+            private static View vLanzar;
+            private static Activity tLanzar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        stringName = getString(R.string.crdNombre);
-        stringHab1 = getString(R.string.crdHab1);
-        stringNHab2 = getString(R.string.crdHab2);
-        stringExp = getString(R.string.crdExp);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -76,69 +55,18 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        recyclerView.setHasFixedSize(true);
+        fragmentManager = getSupportFragmentManager();
+        cLanzar = this.getBaseContext();
+        tLanzar = this;
+        vLanzar = getLayoutInflater().inflate(R.layout.fragment_detalle_pokemon, null);
 
+        FragmentListaPokemones fragmentListaPokemones = new FragmentListaPokemones();
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.frgContendio,fragmentListaPokemones);
+        transaction.commit();
 
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        listaPokemones = new ArrayList();
-
-        /*
-        for (int i = 0; i < Data.names.length; i++) {
-            listaPokemones.add(new Pokemon(
-                    Data.names[i]
-
-            ));
-        }
-
-        adapter = new PokemonInitialAdapter(listaPokemones);
-        recyclerView.setAdapter(adapter);
-        */
-        mRequestQueue = Volley.newRequestQueue(this);
-        parseJSON();
     }
-
-    private void parseJSON(){
-        String url = "https://pokeapi.co/api/v2/pokemon/";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("results");
-                            System.out.println("TAMANIO "+jsonArray.length());
-                            Log.w("TAM","T "+jsonArray.length());
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject hit = jsonArray.getJSONObject(i);
-
-                                String pokemonName = hit.getString("name");
-
-
-                                listaPokemones.add(new Pokemon(pokemonName));
-                            }
-
-                            PokemonInitialAdapter initialAdapter = new PokemonInitialAdapter( listaPokemones);
-                            recyclerView.setAdapter(initialAdapter);
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        mRequestQueue.add(request);
-    }
-
 
 
     @Override
@@ -167,6 +95,38 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            /*
+            Fragment fragment = null;
+            Class fragmentClass= FragmentAbout.class;
+            try{
+                fragment = (Fragment) fragmentClass.newInstance();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.frgContendio, fragment).commit();
+
+
+
+             */
+
+            AlertDialog.Builder uBuilder = new AlertDialog.Builder(this);
+            View aView = getLayoutInflater().inflate(R.layout.fragment_fragment_about, null);
+            uBuilder.setView(aView);
+            final AlertDialog dialog = uBuilder.create();
+            dialog.show();
+
+            Button btnCerrar = aView.findViewById(R.id.btnCloseAboutFragment);
+
+            btnCerrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.cancel();
+                }
+            });
+
+
             return true;
         }
 
@@ -179,15 +139,80 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_favourite) {
 
-        } else if (id == R.id.nav_slideshow) {
+            /*
+            AlertDialog.Builder uBuilder = new AlertDialog.Builder(this);
+            View aView = getLayoutInflater().inflate(R.layout.fragment_fragment_favourite, null);
+            //View v2 = getLayoutInflater().inflate(R.layout.pokemon_favourite, null);;
+            uBuilder.setView(aView);
+            final AlertDialog dialog = uBuilder.create();
+            dialog.show();
 
-        } else if (id == R.id.nav_manage) {
+            Button btnCerrar = aView.findViewById(R.id.btnCerrarRecycler);
+
+            btnCerrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.cancel();
+                }
+            });
+
+            */
+            FragmentFavourite favourite = new FragmentFavourite();
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frgContendio,favourite);
+            transaction.commit();
+
+        } else if (id == R.id.nav_electric) {
+
+            FragmentElectrico electrico = new FragmentElectrico();
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frgContendio,electrico);
+            transaction.commit();
+
+            /*
+            AlertDialog.Builder uBuilder = new AlertDialog.Builder(this);
+            View aView2 = getLayoutInflater().inflate(R.layout.pokemon, null);
+            View aView = getLayoutInflater().inflate(R.layout.fragment_fragment_electrico, null);
+
+            uBuilder.setView(aView);
+            final AlertDialog dialog = uBuilder.create();
+            dialog.show();
+
+            Button btnCerrar = aView2.findViewById(R.id.btnClose);
+
+            btnCerrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.cancel();
+                }
+            });
+
+        */
+        } else if (id == R.id.nav_water) {
+
+        } else if (id == R.id.nav_fire) {
 
         } else if (id == R.id.nav_share) {
+
+            AlertDialog.Builder uBuilder = new AlertDialog.Builder(this);
+            View aView = getLayoutInflater().inflate(R.layout.fragment_fragment_about, null);
+            uBuilder.setView(aView);
+            final AlertDialog dialog = uBuilder.create();
+            dialog.show();
+
+            Button btnCerrar = aView.findViewById(R.id.btnCloseAboutFragment);
+
+            btnCerrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.cancel();
+                }
+            });
+
 
         } else if (id == R.id.nav_send) {
 
@@ -197,4 +222,77 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-}
+
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void comunicar(String nombre) {
+
+        FragmentDetallePokemon detallePokemon = (FragmentDetallePokemon) getSupportFragmentManager().findFragmentById(R.id.frgContendio);
+        detallePokemon.obtenerNombre(nombre);
+
+        AlertDialog.Builder uBuilder = new AlertDialog.Builder(this);
+        View aView = getLayoutInflater().inflate(R.layout.fragment_detalle_pokemon, null);
+        uBuilder.setView(aView);
+        final AlertDialog dialog = uBuilder.create();
+        dialog.show();
+
+        Button btnCerrar = aView.findViewById(R.id.button);
+
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+
+
+    }
+
+
+
+
+
+    public static void lanzar(FragmentDetallePokemon detallePokemon){
+        //FragmentDetallePokemon detallePokemon = FragmentDetallePokemon.newInstance(nombre);
+
+        /*
+        AlertDialog.Builder uBuilder = new AlertDialog.Builder(tLanzar);
+        View aView = vLanzar;
+        uBuilder.setView(aView);
+
+
+
+        final AlertDialog dialog = uBuilder.create();
+
+
+        dialog.show();
+
+
+        Button btnCerrar = aView.findViewById(R.id.button);
+
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+        */
+        android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frgContendio,detallePokemon);
+        transaction.commit();
+    }
+
+
+
+
+
+
+        }

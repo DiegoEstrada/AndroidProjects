@@ -10,6 +10,22 @@
     <string name="crdNombre">Name</string>
     <string name="crdHab1">Ability 1</string>
     <string name="crdHab2">Ability 2</string>
-    <string name="crdExp">Experience</string>
+    <string name="crdPeso">Weight</string>
     <string name="tvTittleListPok">All Pokemons Available</string>
+    <string name="crdTipo">Type</string>
+    <string name="crdHab">Ability</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnFragmentDetalleCerrar">Close</string>
+    <string name="actionAbout">About it</string>
+    <string name="itemFavourite">Favourites</string>
+    <string name="itemWater">Water Pokemons</string>
+    <string name="itemFire">Fire Pokemons</string>
+    <string name="itemElectric">Electric  Pokemons</string>
+    <string name="mComunicacion">Comunicate</string>
+    <string name="itemFeedback">Send Feedback</string>
+    <string name="aboutName">Created by  Estrada Granados Diego</string>
+    <string name="aboutSubject">Advanced Programming I: Android</string>
+    <string name="aboutVersion">Version 1</string>
 </resources>
